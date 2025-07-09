@@ -1,7 +1,16 @@
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import {
+  ResponsiveContainer,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Bar,
+  BarChart,
+} from "recharts";
 import { useNavigate } from "react-router-dom";
 import { FaCrown } from "react-icons/fa";
 import type { FC } from "react";
+import barData from "./data/bar-chart-data";
 
 const pieData = [
   { name: "No Category", value: 14 },
@@ -101,23 +110,14 @@ export const MinePage: FC = () => {
           </div>
 
           <div className="flex items-center justify-center">
-            <ResponsiveContainer width="50%" height={150}>
-              <PieChart>
-                <Pie
-                  data={pieData}
-                  innerRadius={40}
-                  outerRadius={50}
-                  paddingAngle={3}
-                  dataKey="value"
-                >
-                  {pieData.map((_entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={pieColors[index % pieColors.length]}
-                    />
-                  ))}
-                </Pie>
-              </PieChart>
+            <ResponsiveContainer width="100%" height={200}>
+              <BarChart data={barData}>
+                <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                <XAxis dataKey="day" />
+                <YAxis allowDecimals={false} />
+                <Tooltip />
+                <Bar dataKey="tasks" fill="#4F46E5" radius={[4, 4, 0, 0]} />
+              </BarChart>
             </ResponsiveContainer>
 
             <div className="ml-4 space-y-2">

@@ -13,8 +13,15 @@ import { TaskFlagModal } from "../Tasks/components/common/task-flag-modal/TaskFl
 export const DatePage = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [newTodo, setNewTodo] = useState("");
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [todos, setTodos] = useState<any[]>([]);
+  const [todos, setTodos] = useState<
+    {
+      id: number;
+      title: string;
+      date: string | undefined;
+      completed: boolean;
+    }[]
+  >([]);
+  const [open, setOpen] = useState(false);
 
   const handleAddTodo = () => {
     if (!newTodo.trim()) return;
@@ -28,6 +35,7 @@ export const DatePage = () => {
 
     setTodos((prev) => [...prev, newTask]);
     setNewTodo("");
+    setOpen(false); // modalni yopish
   };
 
   const toggleComplete = (id: number) => {
@@ -49,7 +57,15 @@ export const DatePage = () => {
             mode="single"
             selected={date}
             onSelect={setDate}
-            className="rounded-md border w-full bg-white [&_.rdp-day_selected]:bg-blue-500 [&_.rdp-day_selected]:text-white [&_.rdp-day_selected]:rounded-full [&_.rdp-day_selected]:w-10 [&_.rdp-day_selected]:h-10 [&_.rdp-day_selected]:flex [&_.rdp-day_selected]:items-center [&_.rdp-day_selected]:justify-center"
+            className="rounded-md border w-full max-w-md bg-white 
+              [&_.rdp-day_selected]:bg-blue-500 
+              [&_.rdp-day_selected]:text-white 
+              [&_.rdp-day_selected]:rounded-full 
+              [&_.rdp-day_selected]:w-10 
+              [&_.rdp-day_selected]:h-10 
+              [&_.rdp-day_selected]:flex 
+              [&_.rdp-day_selected]:items-center 
+              [&_.rdp-day_selected]:justify-center"
           />
         </div>
 
@@ -77,9 +93,9 @@ export const DatePage = () => {
         </div>
 
         {/* Add New Todo Sheet */}
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button className="w-16 h-16 rounded-full bg-blue-400 cursor-pointer fixed bottom-[100px] right-[25px] shadow-lg">
+            <Button className="w-16 h-16 rounded-full bg-blue-400 cursor-pointer fixed bottom-[100px] right-[25px] shadow-lg z-50">
               <FaPlus color="white" />
             </Button>
           </SheetTrigger>

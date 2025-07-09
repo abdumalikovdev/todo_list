@@ -1,4 +1,4 @@
-export const barData = [
+const barData = [
   { day: "Yak", tasks: 0 },
   { day: "Dush", tasks: 6 },
   { day: "Sesh", tasks: 0 },
@@ -7,3 +7,5 @@ export const barData = [
   { day: "Jum", tasks: 0 },
   { day: "Shan", tasks: 0 },
 ];
+
+export default barData;
