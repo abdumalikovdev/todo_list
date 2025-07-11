@@ -77,7 +77,7 @@ export const DrawerSidebar: FC<DrawerSidebarProps> = ({
                   <AccordionItem value="category">
                     <AccordionTrigger>
                       <div className="flex items-center gap-3 px-4 ">
-                        {item.icon}
+                        <div className="text-blue-400">{item.icon}</div>
                         <span>{item.title}</span>
                       </div>
                     </AccordionTrigger>

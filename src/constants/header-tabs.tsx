@@ -2,7 +2,7 @@ import { GoStarFill } from "react-icons/go";
 import { BiSolidCategory } from "react-icons/bi";
 import { FaBroom } from "react-icons/fa6";
 import { BsFillMenuButtonWideFill } from "react-icons/bs";
-import { FaHeart } from "react-icons/fa";
+import { FaCrown, FaHeart } from "react-icons/fa";
 import { MdOutlineApps } from "react-icons/md";
 import { SiFeedly } from "react-icons/si";
 import { FaQuestionCircle } from "react-icons/fa";
@@ -11,61 +11,101 @@ import { IoMdSettings } from "react-icons/io";
 export const SIDEBAR_TABS = [
   {
     id: 1,
-    icon: "",
-    title: "Middle-Year Sale",
-    path: "/sale",
+    icon: (
+      <div className="text-yellow-400">
+        <FaCrown size={22} />
+      </div>
+    ),
+    title: "Special Offer",
+    path: "/special-offer",
   },
   {
     id: 2,
-    icon: <GoStarFill />,
+    icon: (
+      <div className="text-blue-400">
+        <GoStarFill size={22} />
+      </div>
+    ),
     title: "Starred Tasks",
-    path: "/work",
+    path: "/starred",
   },
   {
     id: 3,
-    icon: <BiSolidCategory />,
+    icon: (
+      <div className="text-blue-400">
+        <BiSolidCategory size={22} />
+      </div>
+    ),
     title: "Category",
     path: "/category",
   },
   {
     id: 4,
-    icon: <FaBroom />,
+    icon: (
+      <div className="text-blue-400">
+        <FaBroom size={22} />
+      </div>
+    ),
     title: "Theme",
     path: "/theme",
   },
   {
     id: 5,
-    icon: <BsFillMenuButtonWideFill />,
+    icon: (
+      <div className="text-blue-400">
+        <BsFillMenuButtonWideFill size={22} />
+      </div>
+    ),
     title: "Widget",
     path: "/widget",
   },
   {
     id: 6,
-    icon: <FaHeart />,
+    icon: (
+      <div className="text-blue-400">
+        <FaHeart size={22} />
+      </div>
+    ),
     title: "Donate",
     path: "/donate",
   },
   {
     id: 7,
-    icon: <MdOutlineApps />,
+    icon: (
+      <div className="text-blue-400">
+        <MdOutlineApps size={22} />
+      </div>
+    ),
     title: "Family Apps",
     path: "/family",
   },
   {
     id: 8,
-    icon: <SiFeedly />,
+    icon: (
+      <div className="text-blue-400">
+        <SiFeedly size={22} />
+      </div>
+    ),
     title: "Feedback",
     path: "/feedback",
   },
   {
     id: 9,
-    icon: <FaQuestionCircle />,
+    icon: (
+      <div className="text-blue-400">
+        <FaQuestionCircle size={22} />
+      </div>
+    ),
     title: "FAQ",
     path: "/faq",
   },
   {
     id: 10,
-    icon: <IoMdSettings />,
+    icon: (
+      <div className="text-blue-400">
+        <IoMdSettings size={22} />
+      </div>
+    ),
     title: "Settings",
     path: "/settings",
   },

@@ -95,7 +95,7 @@ export const DatePage = () => {
         {/* Add New Todo Sheet */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button className="w-16 h-16 rounded-full bg-blue-400 cursor-pointer fixed bottom-[100px] right-[25px] shadow-lg z-50">
+            <Button className="w-16 h-16 rounded-full bg-blue-400 cursor-pointer fixed bottom-[100px] right-[25px] shadow-lg">
               <FaPlus color="white" />
             </Button>
           </SheetTrigger>

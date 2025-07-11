@@ -1,16 +1,15 @@
-import {
-  ResponsiveContainer,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Bar,
-  BarChart,
-} from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { useNavigate } from "react-router-dom";
 import { FaCrown } from "react-icons/fa";
 import type { FC } from "react";
-import barData from "./data/bar-chart-data";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const pieData = [
   { name: "No Category", value: 14 },
@@ -43,9 +42,11 @@ export const MinePage: FC = () => {
         </div>
         <button
           onClick={() => navigate("/pro")}
-          className="bg-white rounded-full px-3 py-1 text-blue-600 font-semibold shadow"
+          className="bg-white rounded-full flex items-center gap-1 px-3 py-1 text-blue-600 font-semibold shadow"
         >
-          <FaCrown color="inline mr-1 text-yellow-400" />
+          <div className="inline mr-1 text-yellow-400">
+            <FaCrown />
+          </div>
           PRO
         </button>
       </div>
@@ -64,13 +65,10 @@ export const MinePage: FC = () => {
 
       {/* Completion of Daily Tasks */}
       <div className="px-4 mt-4">
-        <p className="text-gray-600 font-semibold mb-2">
-          Completion of Daily Tasks
-        </p>
         <div className="bg-gray-100 rounded-lg p-4">
           <div className="flex justify-between items-center text-gray-500 text-sm mb-2">
-            <span>7/6-7/12</span>
-            <span>▼</span>
+            <p>Completion of Daily Tasks</p>
+            <span>▼ 7/6-7/12</span>
           </div>
 
           {/* Bar chart imitation */}
@@ -92,9 +90,8 @@ export const MinePage: FC = () => {
 
       {/* Tasks in Next 7 Days */}
       <div className="px-4 mt-4">
-        <p className="text-gray-600 font-semibold mb-2">Tasks in Next 7 Days</p>
         <div className="bg-gray-100 rounded-lg p-4">
-          <p className="text-gray-500 text-sm">No tasks upcoming.</p>
+          <p className="text-gray-500 text-sm">Tasks in Next 7 Days</p>
         </div>
       </div>
 
@@ -105,19 +102,43 @@ export const MinePage: FC = () => {
         </p>
         <div className="bg-gray-100 rounded-lg p-4">
           <div className="flex justify-between items-center text-gray-500 text-sm mb-2">
-            <span>In 30 days</span>
-            <span>▼</span>
+            <span>
+              Pending Tasks in <br /> Categories
+            </span>
+            <div>
+              <Select>
+                <SelectTrigger className=" border-none">
+                  <SelectValue placeholder="In 7 days" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectItem value="apple">In 7 days</SelectItem>
+                    <SelectItem value="banana">In 30 days</SelectItem>
+                    <SelectItem value="blueberry">All</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
           <div className="flex items-center justify-center">
-            <ResponsiveContainer width="100%" height={200}>
-              <BarChart data={barData}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="day" />
-                <YAxis allowDecimals={false} />
-                <Tooltip />
-                <Bar dataKey="tasks" fill="#4F46E5" radius={[4, 4, 0, 0]} />
-              </BarChart>
+            <ResponsiveContainer width="50%" height={150}>
+              <PieChart>
+                <Pie
+                  data={pieData}
+                  innerRadius={40}
+                  outerRadius={50}
+                  paddingAngle={3}
+                  dataKey="value"
+                >
+                  {pieData.map((_entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={pieColors[index % pieColors.length]}
+                    />
+                  ))}
+                </Pie>
+              </PieChart>
             </ResponsiveContainer>
 
             <div className="ml-4 space-y-2">
@@ -138,20 +159,6 @@ export const MinePage: FC = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Bottom Upgrade Bar */}
-      <div className="fixed bottom-0 w-full bg-white border-t px-4 py-2 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <FaCrown color="text-yellow-400" />
-          <p className="text-gray-700 text-sm">Upgrade to PRO</p>
-        </div>
-        <button
-          onClick={() => navigate("/pro")}
-          className="text-gray-500 text-sm"
-        >
-          &gt;
-        </button>
       </div>
     </div>
   );
