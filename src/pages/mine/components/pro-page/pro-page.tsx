@@ -108,7 +108,6 @@ export const ProPage: FC = () => {
         </div>
 
         <div className="grid grid-cols-3 gap-3 mb-6">
-          {/* Monthly */}
           <div className="relative bg-white rounded-lg p-3 text-center shadow border">
             <p className="text-gray-700 font-semibold">Monthly</p>
             <div className="mt-2 flex justify-center">
@@ -119,7 +118,6 @@ export const ProPage: FC = () => {
             <p className="text-gray-400 text-xs mt-2">Billed monthly</p>
           </div>
 
-          {/* Permanent */}
           <div className="relative bg-yellow-50 flex justify-center rounded-lg p-3 text-center shadow border border-red-400">
             <div className="absolute top-[-11px] bg-red-500 text-white text-xs px-[14px] py-[4px] rounded-xl">
               Recommend
@@ -135,7 +133,6 @@ export const ProPage: FC = () => {
             </div>
           </div>
 
-          {/* Annual */}
           <div className="relative flex justify-center bg-white rounded-lg p-3 text-center shadow border">
             <div className="absolute top-[-11px] bg-orange-300 text-white text-xs px-[28px] py-[4px] rounded-xl">
               Popular
@@ -281,7 +278,6 @@ export const ProPage: FC = () => {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-3 mb-[150px]">
-          {/* Monthly */}
           <div className="relative bg-white rounded-lg p-3 text-center shadow border">
             <p className="text-gray-700 font-semibold">Monthly</p>
             <div className="mt-2 flex justify-center">
@@ -309,7 +305,6 @@ export const ProPage: FC = () => {
             <p className="text-gray-400 text-xs mt-2">Billed monthly</p>
           </div>
 
-          {/* Permanent */}
           <div className="relative bg-yellow-50 flex justify-center rounded-lg p-3 text-center shadow border border-red-400">
             <div className="absolute top-[-11px] bg-red-500 text-white text-xs px-[14px] py-[4px] rounded-xl">
               Recommend
@@ -342,7 +337,6 @@ export const ProPage: FC = () => {
             </div>
           </div>
 
-          {/* Annual */}
           <div className="relative flex justify-center bg-white rounded-lg p-3 text-center shadow border">
             <div className="absolute top-[-11px] bg-orange-300 text-white text-xs px-[28px] py-[4px] rounded-xl">
               Popular

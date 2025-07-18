@@ -27,7 +27,7 @@ export const SIDEBAR_TABS = [
       </div>
     ),
     title: "Starred Tasks",
-    path: "/starred",
+    path: "/starred-tasks",
   },
   {
     id: 3,

@@ -1,5 +1,4 @@
-import { THEMES } from "@/themes/themes";
-
+import { THEMES } from "@/themes";
 export const changeTheme = (themeName: keyof typeof THEMES) => {
   const theme = THEMES[themeName];
   const root = document.documentElement;

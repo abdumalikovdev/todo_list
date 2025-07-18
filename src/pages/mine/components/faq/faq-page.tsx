@@ -11,8 +11,8 @@ export const FaqPage = () => {
   const navigate = useNavigate();
   return (
     <div className="p-4">
-      <div className="flex items-center mb-4 gap-2">
-        <button onClick={() => navigate("/pro")}>
+      <div className="flex items-center w-full p-2 mb-4 gap-2">
+        <button onClick={() => navigate("-1")}>
           <FaArrowLeft size={20} />
         </button>
         <h1 className="text-2xl font-semibold">FAQ</h1>

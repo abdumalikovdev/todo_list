@@ -1,6 +1,6 @@
 export const THEMES = {
-  blue: {
-    "--primary-color": "#3b82f6",
+  "light blue": {
+    "--primary-color": "#86b7fe", // light blue
     "--primary-light-color": "#eff6ff",
     "--primary-contrast-color": "#ffffff",
     "--secondary-color": "#9c27b0",
@@ -12,9 +12,9 @@ export const THEMES = {
     "--info-color": "#03a9f4",
     "--info-contrast-color": "#ffffff",
   },
-  red: {
-    "--primary-color": "#d32f2f",
-    "—-primary-light-color": "#fef2f2",
+  "#pink": {
+    "--primary-color": "#f28fb1", // pink
+    "--primary-light-color": "#fef2f2",
     "--primary-contrast-color": "#ffffff",
     "--secondary-color": "#ff4081",
     "--secondary-contrast-color": "#ffffff",
@@ -22,11 +22,11 @@ export const THEMES = {
     "--success-contrast-color": "#ffffff",
     "--warning-color": "#ff9800",
     "--warning-contrast-color": "#000000",
-    "_-info-color": "#03a9f4",
+    "--info-color": "#03a9f4",
     "--info-contrast-color": "#ffffff",
   },
-  green: {
-    "—-primary-color": "#388e3c",
+  "#teal green": {
+    "--primary-color": "#4ab3a6", // teal-green
     "--primary-light-color": "#f0fdf4",
     "--primary-contrast-color": "#ffffff",
     "--secondary-color": "#8e24aa",
@@ -38,9 +38,9 @@ export const THEMES = {
     "--info-color": "#03a9f4",
     "--info-contrast-color": "#ffffff",
   },
-  orange: {
-    "--primary-color": "#f57c00",
-    "--primary-light-color": "#fff7ed",
+  "#dark gray": {
+    "--primary-color": "#2c2b2c", // dark gray-black
+    "--primary-light-color": "#e0e0e0",
     "--primary-contrast-color": "#ffffff",
     "--secondary-color": "#7b1fa2",
     "--secondary-contrast-color": "#ffffff",
@@ -49,19 +49,6 @@ export const THEMES = {
     "--warning-color": "#ff9800",
     "--warning-contrast-color": "#000000",
     "--info-color": "#0288d1",
-    "--info-contrast-color": "#ffffff",
-  },
-  purple: {
-    "—-primary-color": "#7b1fa2",
-    "--primary-light-color": "#f3e8ff",
-    "--primary-contrast-color": "#ffffff",
-    "--secondary-color": "#ff4081",
-    "--secondary-contrast-color": "#ffffff",
-    "--success-color": "#388e3c",
-    "--success-contrast-color": "#ffffff",
-    "--warning-color": "#fbc02d",
-    "--warning-contrast-color": "#000000",
-    "--info-color": "#03a9f4",
     "--info-contrast-color": "#ffffff",
   },
 };

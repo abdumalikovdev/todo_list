@@ -6,7 +6,7 @@ interface MainLayoutProps {
   children: ReactNode;
 }
 
-const PUBLIC_ROUTES = ["/pro", "/special-offer"];
+const PUBLIC_ROUTES = ["/pro", "/special-offer", "/starred-tasks", "/theme"];
 export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

@@ -1,4 +1,5 @@
 import { useState, type FC } from "react";
+import { useNavigate } from "react-router-dom";
 import { TasksHeader } from "./components/task-header/task-header";
 import { Button } from "@/components/ui/button";
 import { FaPlus } from "react-icons/fa6";
@@ -28,6 +29,7 @@ export const Tasks: FC = () => {
   const [activePage, setActivePage] = useState("All");
   const [todos, setTodos] = useState<Todo[]>([]);
   const [newTodo, setNewTodo] = useState("");
+  const navigate = useNavigate();
 
   const handleAddTodo = () => {
     if (newTodo.trim() === "") return;
@@ -54,21 +56,23 @@ export const Tasks: FC = () => {
     );
   };
 
+  const handleTaskClick = (task: Todo) => {
+    navigate(`/tasks/${task.id}`, { state: { task } });
+  };
+
   const filteredTodos =
     activePage === "All"
       ? todos
       : todos.filter((todo) => todo.category === activePage);
 
-  const previousTodos = filteredTodos.filter(
-    (todo) => todo.date !== new Date().toISOString().split("T")[0]
-  );
+  const todayDate = new Date().toISOString().split("T")[0];
+
+  const previousTodos = filteredTodos.filter((todo) => todo.date !== todayDate);
   const todayTodos = filteredTodos.filter(
-    (todo) =>
-      todo.date === new Date().toISOString().split("T")[0] && !todo.completed
+    (todo) => todo.date === todayDate && !todo.completed
   );
   const completedTodos = filteredTodos.filter(
-    (todo) =>
-      todo.date === new Date().toISOString().split("T")[0] && todo.completed
+    (todo) => todo.date === todayDate && todo.completed
   );
 
   return (
@@ -81,11 +85,19 @@ export const Tasks: FC = () => {
             <AccordionTrigger>Previous</AccordionTrigger>
             <AccordionContent>
               {previousTodos.map((task) => (
-                <TaskItem
+                <div
                   key={task.id}
-                  {...task}
-                  onToggleComplete={toggleComplete}
-                />
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => handleTaskClick(task)}
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      handleTaskClick(task);
+                    }
+                  }}
+                >
+                  <TaskItem {...task} onToggleComplete={toggleComplete} />
+                </div>
               ))}
             </AccordionContent>
           </AccordionItem>
@@ -96,11 +108,19 @@ export const Tasks: FC = () => {
             <AccordionTrigger>Today</AccordionTrigger>
             <AccordionContent>
               {todayTodos.map((task) => (
-                <TaskItem
+                <div
                   key={task.id}
-                  {...task}
-                  onToggleComplete={toggleComplete}
-                />
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => handleTaskClick(task)}
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      handleTaskClick(task);
+                    }
+                  }}
+                >
+                  <TaskItem {...task} onToggleComplete={toggleComplete} />
+                </div>
               ))}
             </AccordionContent>
           </AccordionItem>
@@ -111,11 +131,19 @@ export const Tasks: FC = () => {
             <AccordionTrigger>Completed Today</AccordionTrigger>
             <AccordionContent>
               {completedTodos.map((task) => (
-                <TaskItem
+                <div
                   key={task.id}
-                  {...task}
-                  onToggleComplete={toggleComplete}
-                />
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => handleTaskClick(task)}
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      handleTaskClick(task);
+                    }
+                  }}
+                >
+                  <TaskItem {...task} onToggleComplete={toggleComplete} />
+                </div>
               ))}
             </AccordionContent>
           </AccordionItem>
@@ -129,7 +157,7 @@ export const Tasks: FC = () => {
           </Button>
         </SheetTrigger>
 
-        <SheetContent side="bottom" className="p-4 space-y-4">
+        <SheetContent side="bottom" className="p-4 space-y-4 bg-white">
           <SheetTitle>Add New Todo</SheetTitle>
           <input
             type="text"
